@@ -6,5 +6,4 @@ use Dcodegroup\LaravelXeroOauth\BaseXeroService;
 
 class BaseXeroEmployeeService extends BaseXeroService
 {
-
 }
