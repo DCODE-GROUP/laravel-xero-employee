@@ -26,6 +26,9 @@ class InstallCommand extends Command
      */
     public function handle()
     {
+        $this->comment('Publishing Laravel Xero Employee Configuration...');
+        $this->callSilent('vendor:publish', ['--tag' => 'laravel-xero-employee-config']);
+
         if (Schema::hasTable('users') && ! class_exists('AddXeroEmployeeFieldsToUsersTable')) {
             $this->comment('Publishing Laravel Xero Employee Migrations');
             $this->callSilent('vendor:publish', ['--tag' => 'laravel-xero-employee-migrations']);

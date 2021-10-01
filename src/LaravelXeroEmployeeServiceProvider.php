@@ -17,6 +17,8 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->publishes([__DIR__ . '/../config/laravel-xero-employee.php' => config_path('laravel-xero-employee.php')], 'laravel-xero-employee-config');
+
         $this->app->bind(BaseXeroEmployeeService::class, function () {
             return new BaseXeroEmployeeService(resolve(Application::class));
         });
@@ -24,6 +26,8 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
 
     protected function offerPublishing()
     {
+        $this->publishes([__DIR__ . '/../config/laravel-xero-employee.php' => config_path('laravel-xero-employee.php')], 'laravel-xero-employee-config');
+
         if (Schema::hasTable('users') && ! class_exists('AddXeroEmployeeFieldsToUsersTable')) {
             $timestamp = date('Y_m_d_His', time());
 
