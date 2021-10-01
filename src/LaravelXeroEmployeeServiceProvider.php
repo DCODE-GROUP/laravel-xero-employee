@@ -2,6 +2,7 @@
 
 namespace Dcodegroup\LaravelXeroEmployee;
 
+use Dcodegroup\LaravelXeroEmployee\Commands\DefaultUserEarningRatesCommand;
 use Dcodegroup\LaravelXeroEmployee\Commands\InstallCommand;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -31,6 +32,7 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
         if (Schema::hasTable('users') &&
             ! Schema::hasColumns('users', [
                 'xero_employee_id',
+                'xero_default_payroll_calendar_id',
                 'xero_default_earnings_rate_id',
                 'xero_time_and_a_half_earnings_rate_id',
                 'xero_double_time_earnings_rate_id'
@@ -48,6 +50,7 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                                 InstallCommand::class,
+                                DefaultUserEarningRatesCommand::class
                             ]);
         }
     }

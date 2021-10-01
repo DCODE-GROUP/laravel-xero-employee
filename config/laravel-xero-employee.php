@@ -12,5 +12,4 @@ return [
   */
     'queue' => env('LARAVEL_XERO_EMPLOYEE_QUEUE', 'default'),
 
-
 ];

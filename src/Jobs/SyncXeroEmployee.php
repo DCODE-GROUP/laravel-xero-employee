@@ -2,6 +2,7 @@
 
 namespace Dcodegroup\LaravelXeroEmployee\Jobs;
 
+use Dcodegroup\LaravelXeroEmployee\BaseXeroEmployeeService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -22,6 +23,13 @@ class SyncXeroEmployee implements ShouldQueue
      */
     public function __construct()
     {
-        $this->queue = config('laravel-xero-payroll-au.queue');
+        $this->queue = config('laravel-xero-employee.queue');
+    }
+
+    public function handle()
+    {
+        $service = resolve(BaseXeroEmployeeService::class);
+
+
     }
 }
