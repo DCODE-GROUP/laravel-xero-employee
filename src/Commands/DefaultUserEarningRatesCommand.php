@@ -5,7 +5,6 @@ namespace Dcodegroup\LaravelXeroEmployee\Commands;
 use App\Models\User;
 use Dcodegroup\LaravelConfiguration\Models\Configuration;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Schema;
 
 class DefaultUserEarningRatesCommand extends Command
 {

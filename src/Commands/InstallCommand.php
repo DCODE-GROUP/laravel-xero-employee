@@ -3,7 +3,6 @@
 namespace Dcodegroup\LaravelXeroEmployee\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Schema;
 
 class InstallCommand extends Command
 {

@@ -29,7 +29,5 @@ class SyncXeroEmployee implements ShouldQueue
     public function handle()
     {
         $service = resolve(BaseXeroEmployeeService::class);
-
-
     }
 }

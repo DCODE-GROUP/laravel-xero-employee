@@ -35,7 +35,7 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
                 'xero_default_payroll_calendar_id',
                 'xero_default_earnings_rate_id',
                 'xero_time_and_a_half_earnings_rate_id',
-                'xero_double_time_earnings_rate_id'
+                'xero_double_time_earnings_rate_id',
             ])) {
             $timestamp = date('Y_m_d_His', time());
 
@@ -50,7 +50,7 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                                 InstallCommand::class,
-                                DefaultUserEarningRatesCommand::class
+                                DefaultUserEarningRatesCommand::class,
                             ]);
         }
     }
