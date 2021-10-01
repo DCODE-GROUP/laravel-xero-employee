@@ -28,7 +28,13 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__ . '/../config/laravel-xero-employee.php' => config_path('laravel-xero-employee.php')], 'laravel-xero-employee-config');
 
-        if (Schema::hasTable('users') && ! class_exists('AddXeroEmployeeFieldsToUsersTable')) {
+        if (Schema::hasTable('users') &&
+            ! Schema::hasColumns('users', [
+                'xero_employee_id',
+                'xero_default_earnings_rate_id',
+                'xero_time_and_a_half_earnings_rate_id',
+                'xero_double_time_earnings_rate_id'
+            ])) {
             $timestamp = date('Y_m_d_His', time());
 
             $this->publishes([
