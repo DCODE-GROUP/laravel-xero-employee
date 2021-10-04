@@ -4,6 +4,7 @@ namespace Dcodegroup\LaravelXeroEmployee;
 
 use Dcodegroup\LaravelXeroEmployee\Commands\DefaultUserEarningRatesCommand;
 use Dcodegroup\LaravelXeroEmployee\Commands\InstallCommand;
+use Dcodegroup\LaravelXeroEmployee\Observers\XeroEmployeeObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use XeroPHP\Application;
@@ -14,10 +15,15 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
     {
         $this->offerPublishing();
         $this->registerCommands();
+
+        $employeeClass = config('laravel-xero-employee.employee_model');
+        $employeeClass::observe(new XeroEmployeeObserver());
     }
 
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-xero-employee.php', 'laravel-xero-employee');
+
         $this->publishes([__DIR__ . '/../config/laravel-xero-employee.php' => config_path('laravel-xero-employee.php')], 'laravel-xero-employee-config');
 
         $this->app->bind(BaseXeroEmployeeService::class, function () {
