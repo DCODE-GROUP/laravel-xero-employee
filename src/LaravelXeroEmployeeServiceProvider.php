@@ -72,7 +72,7 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
                          'as' => Str::slug(config('laravel-xero-employee.path'), '_') . '.',
                          'middleware' => config('laravel-xero-employee.middleware', 'web'),
                      ], function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/laravel_xero_employee.php');
-        });
+                         $this->loadRoutesFrom(__DIR__ . '/../routes/laravel_xero_employee.php');
+                     });
     }
 }
