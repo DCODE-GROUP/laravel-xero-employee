@@ -35,5 +35,4 @@ class SyncAllXeroEmployees implements ShouldQueue
             SyncXeroEmployee::dispatch($model);
         });
     }
-
 }
