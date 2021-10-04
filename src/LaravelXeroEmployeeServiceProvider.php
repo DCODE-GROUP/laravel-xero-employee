@@ -5,8 +5,10 @@ namespace Dcodegroup\LaravelXeroEmployee;
 use Dcodegroup\LaravelXeroEmployee\Commands\DefaultUserEarningRatesCommand;
 use Dcodegroup\LaravelXeroEmployee\Commands\InstallCommand;
 use Dcodegroup\LaravelXeroEmployee\Observers\XeroEmployeeObserver;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use XeroPHP\Application;
 
 class LaravelXeroEmployeeServiceProvider extends ServiceProvider
@@ -18,6 +20,8 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
 
         $employeeClass = config('laravel-xero-employee.employee_model');
         $employeeClass::observe(new XeroEmployeeObserver());
+
+        $this->registerRoutes();
     }
 
     public function register()
@@ -59,5 +63,16 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
                                 DefaultUserEarningRatesCommand::class,
                             ]);
         }
+    }
+
+    protected function registerRoutes()
+    {
+        Route::group([
+                         'prefix' => config('laravel-xero-employee.path'),
+                         'as' => Str::slug(config('laravel-xero-employee.path'), '_') . '.',
+                         'middleware' => config('laravel-xero-employee.middleware', 'web'),
+                     ], function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/laravel_xero_employee.php');
+        });
     }
 }

@@ -67,4 +67,7 @@ class User extends Authenticatable
 
 ```
 
+This package provides a route that can be used to provide an endpoint to dispatch the SyncXeroEmployee job.
+
+[example.com/xero-employee/{user}] xero_employee.sync Please see the config file if you wish to customise the route. This will dispatch the job for the user and sync them to your application.
 
