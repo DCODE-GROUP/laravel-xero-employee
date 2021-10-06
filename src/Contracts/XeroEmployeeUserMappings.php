@@ -11,6 +11,6 @@ interface XeroEmployeeUserMappings
      *
      * @return string
      */
-    public function getXeroEmployeeNameAttribute(): string
+    public function getXeroEmployeeNameAttribute(): string;
 
 }
