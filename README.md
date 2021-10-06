@@ -34,7 +34,7 @@ After running install the following fields will be added to the users table.
 * xero_time_and_a_half_earnings_rate_id
 * xero_double_time_earnings_rate_id
 
-You will need to add these fields to your fillable array within the model
+You will need to add these fields to your fillable array within the `User::class` model
 
 ```php
     /**
@@ -50,6 +50,32 @@ You will need to add these fields to your fillable array within the model
                    'xero_double_time_earnings_rate_id',
                    ...
     ];
+
+```
+
+You also need to add the following interface to the `User::class` model.
+
+```php 
+
+use Dcodegroup\LaravelXeroEmployee\Contracts\XeroEmployeeUserMappings;
+
+class User extends Authenticatable implements XeroEmployeeUserMappings
+{
+    ...
+
+```
+
+You should then implement the methods defined in the contract.
+eg Like below but what ever your using
+
+```php
+
+  public function getXeroEmployeeNameAttribute(): string
+  {
+    //return $this->name;
+    //return $this->first_name . ' ' . $this->last_name;
+    return $this->prefered_name;
+  }
 
 ```
 
