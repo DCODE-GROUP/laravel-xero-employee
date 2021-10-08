@@ -18,4 +18,14 @@ trait UsesXeroEmployee
             && $this->xero_time_and_a_half_earnings_rate_id
             && $this->xero_double_time_earnings_rate_id;
     }
+
+    public function scopeHasXeroEmployeeId(Builder $query): Builder
+    {
+        return $query->whereNotNull('xero_employee_id');
+    }
+
+    public function scopeMissingXeroEmployeeId(Builder $query): Builder
+    {
+        return $query->whereNotNull('xero_employee_id');
+    }
 }
