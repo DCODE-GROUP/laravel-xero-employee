@@ -35,6 +35,7 @@ class BaseXeroEmployeeService extends BaseXeroService
             if ($employee instanceof Employee) {
                 $user->xero_employee_id = $employee->getEmployeeID();
                 $user->xero_default_earnings_rate_id = $employee->getOrdinaryEarningsRateID();
+                $user->xero_default_payroll_calendar_id = $employee->getPayrollCalendarID();
                 $user->save();
             } else {
                 // not found so clear what is stored
