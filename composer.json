@@ -25,8 +25,8 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "dcodegroup/laravel-xero-oauth": "^1.0",
-    "dcodegroup/laravel-xero-payroll-au": "^0.1",
+    "dcodegroup/laravel-xero-oauth": "dev-develop|^1.0",
+    "dcodegroup/laravel-xero-payroll-au": "dev-develop|^0.1",
     "laravel/framework": "^7.0 |^8.0"
   },
   "require-dev": {
