@@ -1,4 +1,4 @@
-**# Laravel Xero Timesheet Sync
+# Laravel Xero Timesheet Sync
 
 This package provides the standard xero functionality for syncing Xero Employee ID with users and assigning pay rates to
 users.
