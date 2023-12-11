@@ -33,11 +33,11 @@ class AddXeroEmployeeFieldsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn([
-                                   'xero_employee_id',
-                                   'xero_default_earnings_rate_id',
-                                   'xero_time_and_a_half_earnings_rate_id',
-                                   'xero_double_time_earnings_rate_id',
-                               ]);
+                'xero_employee_id',
+                'xero_default_earnings_rate_id',
+                'xero_time_and_a_half_earnings_rate_id',
+                'xero_double_time_earnings_rate_id',
+            ]);
         });
     }
 }

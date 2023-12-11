@@ -27,10 +27,11 @@
     "php": "^7.4|^8.0",
     "dcodegroup/laravel-xero-oauth": "^1.0",
     "dcodegroup/laravel-xero-payroll-au": "^0.1",
-    "laravel/framework": "^7.0|^8.0|^9.0"
+    "laravel/framework": "^7.0|^8.0|^9.0|^10.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.16"
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "laravel/pint": "^1.13"
   },
   "autoload": {
     "psr-4": {

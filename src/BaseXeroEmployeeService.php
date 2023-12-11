@@ -39,13 +39,13 @@ class BaseXeroEmployeeService extends BaseXeroService
                 $user->save();
             } else {
                 // not found so clear what is stored
-                logger('employee not found with email: ' . $user->email);
+                logger('employee not found with email: '.$user->email);
                 $user->update([
-                                  'xero_employee_id' => null,
-                              ]);
+                    'xero_employee_id' => null,
+                ]);
             }
         } catch (Exception $e) {
-            Log::error('Employee not found in xero syncXeroEmployee error: ' . $e->getMessage());
+            Log::error('Employee not found in xero syncXeroEmployee error: '.$e->getMessage());
             report($e);
 
             return false;
