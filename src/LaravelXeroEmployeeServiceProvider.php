@@ -20,7 +20,7 @@ class LaravelXeroEmployeeServiceProvider extends ServiceProvider
         $this->registerCommands();
 
         $employeeClass = config('laravel-xero-employee.employee_model');
-        $employeeClass::observe(new XeroEmployeeObserver());
+        $employeeClass::observe(new XeroEmployeeObserver);
 
         $this->registerRoutes();
     }
