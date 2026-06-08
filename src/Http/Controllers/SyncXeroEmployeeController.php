@@ -4,12 +4,15 @@ namespace Dcodegroup\LaravelXeroEmployee\Http\Controllers;
 
 use App\Models\User;
 use Dcodegroup\LaravelXeroEmployee\Jobs\SyncXeroEmployee;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class SyncXeroEmployeeController
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return Application|ResponseFactory|Response
      */
     public function __invoke(Request $request, User $user)
     {

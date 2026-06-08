@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 return [
 
     /*
@@ -8,7 +10,7 @@ return [
      | Generally this will be the User model
      |
      */
-    'employee_model' => env('LARAVEL_XERO_EMPLOYEE_MODEL', App\Models\User::class),
+    'employee_model' => env('LARAVEL_XERO_EMPLOYEE_MODEL', User::class),
 
     /*
     |--------------------------------------------------------------------------

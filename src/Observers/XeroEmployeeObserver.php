@@ -13,7 +13,7 @@ class XeroEmployeeObserver
         /**
          * Set the default values for the xero employee fields incase they have not been set
          */
-        //Artisan::call('laravel-xero-employee:assign-default-earning-rates');
+        // Artisan::call('laravel-xero-employee:assign-default-earning-rates');
 
         $model->update([
             'xero_default_payroll_calendar_id' => Configuration::byKey('xero_default_payroll_calendar')

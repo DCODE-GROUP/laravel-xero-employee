@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use XeroPHP\Application;
 use XeroPHP\Models\PayrollAU\Employee;
+use XeroPHP\Remote\Exception\NotFoundException;
 
 class BaseXeroEmployeeService extends BaseXeroService
 {
@@ -44,7 +45,7 @@ class BaseXeroEmployeeService extends BaseXeroService
                     'xero_employee_id' => null,
                 ]);
             }
-        } catch (\XeroPHP\Remote\Exception\NotFoundException $e) {
+        } catch (NotFoundException $e) {
             if (! app()->isProduction()) {
                 // not found so clear what is stored
                 logger('employee not found with email: '.$user->email);
